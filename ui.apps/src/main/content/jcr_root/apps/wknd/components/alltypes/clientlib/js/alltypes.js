@@ -9,7 +9,7 @@
         if (testvalue == true) {
             alert("INVALID VALUE");
         } else {
-            alert("VALID VALUE");
+            alert("VALID VALUE!");
         }
     });
 
