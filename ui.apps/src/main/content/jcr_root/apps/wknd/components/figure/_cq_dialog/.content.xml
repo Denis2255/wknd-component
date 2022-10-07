@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Figure component"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[figure]">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <columns
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                    maximized="{Boolean}false">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <selectField
+                                    granite:class="cq-dialog-dropdown-showhide"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldDescription="Select a figure."
+                                    fieldLabel="Type of a figure"
+                                    emptyField="Make a choice"
+                                    name="./figure">
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <square
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Square"
+                                            value="square"/>
+                                    <rectangle
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Rectangle"
+                                            value="rectangle"/>
+                                    <circle
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Circle"
+                                            value="circle"/>
+                                </items>
+                            </selectField>
+                            <targetSquare
+                                    granite:class="showhidetargets"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        showhidetargetvalue="square"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <squareSideLength
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            required="{Boolean}true"
+                                            emptyText="Enter the value"
+                                            fieldLabel="Square Side Length"
+                                            name="./squareSideLength"/>
+                                </items>
+                            </targetSquare>
+                            <targetRectangle
+                                    granite:class="showhidetargets"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        showhidetargetvalue="rectangle"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <rectangleSideLength
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            required="{Boolean}true"
+                                            emptyText="Enter the value"
+                                            fieldLabel="Rectangle Side Length"
+                                            name="./rectangleSideLength"/>
+                                    <rectangleSideWidth
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            required="{Boolean}true"
+                                            emptyText="Enter the value"
+                                            fieldLabel="Rectangle Width Length"
+                                            name="./rectangleSideWidth"/>
+                                </items>
+                            </targetRectangle>
+                            <targetCircle
+                                    granite:class="showhidetargets"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        showhidetargetvalue="circle"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <circleSideLength
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            required="{Boolean}true"
+                                            emptyText="Enter the value"
+                                            fieldLabel="Radius"
+                                            name="./circleSideLength"/>
+                                </items>
+                            </targetCircle>
+                        </items>
+                    </column>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,36 @@
+
+<div data-sly-use.htl="com.adobe.aem.guides.wknd.core.models.HTLSightly"></div>
+<h1>_____Sightly Demo_______</h1>
+<!--==================Use List=====================-->
+<!--<div data-sly-list.item="${htl.books}">-->
+<!--    <p>Book : <b>${item}</b></p>-->
+<!--    <p>Subject: <b>${item.booksubject}</b></p>-->
+<!--</div>-->
+<!--==================Use List with MAP=====================-->
+<!--<div data-sly-list.item="${htl.books}">-->
+<!--    <p>Book : <b>${item.bookname}</b></p>-->
+<!--    <p>Subject: <b>${item.booksubject}</b></p>-->
+<!--</div>-->
+<!--==================Use MAP=====================-->
+<!--<div data-sly-list.item="${htl.books}">-->
+<!--    <p>key : <b>${item}</b></p>-->
+<!--    <p>value: <b>${htl.bookMap[item]}</b></p>-->
+<!--</div>-->
+<!--==================new=====================-->
+<!--<div id="html-attribute">-->
+<!--    <p>Using html</p>-->
+<div data-sly-include="include1.html"> TWO</div>
+<!--<div data-sly-resource="${'/content/wknd/us/en/jcr:content/root/container/container/byline'}"></div>-->
+<!--</div>-->
+<!--<div id="sightly-attribute" data-sly-attribute="htl.bookMap">-->
+<!--    <p>Using arrtibute</p>-->
+<!--</div>-->
+<div style="color: #e04d20; font-style: italic;font-family: Arial, serif"><p>
+    Dialog: <b>${properties.title}</b>
+</p></div>
+<div>
+    <p>${'<h1>Hhhhhhhhhhhhhhh</h1>' @ context= 'html'}</p>
+</div>
+
+
+

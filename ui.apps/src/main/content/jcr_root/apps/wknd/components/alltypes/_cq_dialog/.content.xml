@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Alltypes component"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[linkk]">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <columns
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                    maximized="{Boolean}false">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <text
+                                    granite:class="text-class"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    emptyText="Enter the text"
+                                    fieldDescription="TEXT FIELD"
+                                    fieldLabel="Text"
+                                    name="./text"
+                            />
+                            <button
+                                    granite:class="check-button"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/libs/granite/ui/components/coral/foundation/button"
+                                    type="button"
+                                    text="CHECK"
+                                    block="true"/>
+                            <isChecked
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldLabel="isChecked?"
+                                    name="./isChecked"
+                                    text="isChecked flag"
+                                    uncheckedValue="{Boolean}false"
+                                    value="{Boolean}true"/>
+                            <textfield-example
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="textfield-example"
+                                    name="./example"
+                                    value="{String}Default Text"
+                                    emptyText="Show placeholder text when input field is empty."
+                                    disabled="{Boolean}false"
+                                    required="{Boolean}true"
+                                    autocomplete="off"
+                                    autofocus="{Boolean}true"
+                                    validation=""
+                                    maxlength="{Long}100"/>
+                            <textfield-example-brandSlogan
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Brand Slogan"
+                                    required="{Boolean}true"
+                                    name="./brandSlogan"/>
+                            <textarea-example-description
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                    fieldLabel="Description"
+                                    name="./description"
+                                    value=""
+                                    emptyText="A hint to the user of what can be entered in the field."
+                                    disabled="{Boolean}false"
+                                    required="{Boolean}true"
+                                    autocomplete="off"
+                                    autofocus="{Boolean}false"
+                                    maxlength="{Long}160"
+                                    rows="100"
+                                    resize="both"/>
+                            <pathfield-example-logoPath
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldLabel="Logo Path"
+                                    name="./logoPath"
+                                    required="true"
+                                    rootPath="/content/dam"/>
+                            <countries
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldLabel="Countries">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        name="./countries">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                emptyText="Name"
+                                                name="./name"/>
+                                        <code
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                emptyText="Code"
+                                                name="./code"/>
+                                    </items>
+                                </field>
+                            </countries>
+                            <linkTarget
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="CTA Link Target"
+                                    name="./linkTarget">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="Same Page"
+                                            value="Same Page"/>
+                                    <blank
+                                            jcr:primaryType="nt:unstructured"
+                                            text="New Tab"
+                                            value="New Tab"/>
+                                </items>
+                            </linkTarget>
+                            <radiogroup-example-columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                    deleteHint="{Boolean}true"
+                                    fieldLabel="Type"
+                                    name="./columns"
+                                    vertical="{Boolean}false">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <columns1
+                                            jcr:primaryType="nt:unstructured"
+                                            checked="{Boolean}true"
+                                            text="1 Column"
+                                            value="1"/>
+                                    <columns2
+                                            jcr:primaryType="nt:unstructured"
+                                            text="2 Columns"
+                                            value="2"/>
+                                    <columns3
+                                            jcr:primaryType="nt:unstructured"
+                                            text="3 Columns"
+                                            value="3"/>
+                                </items>
+                            </radiogroup-example-columns>
+                            <numberfield-example-ageRestriction
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                    fieldLabel="Age Restriction"
+                                    min="{Long}1"
+                                    max="{Double}200"
+                                    name="./ageRestriction"
+                                    disabled="{Boolean}false"
+                                    step="1"
+                                    value=""/>
+                            <fileupload-example-file
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Image asset"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./fileReferenceDam"
+                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                    multiple="{Boolean}false"
+                                    name="./file"
+                                    title="Upload Image Asset"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <fileupload-example-downloadAsset
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    allowUpload="{Boolean}false"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Download Asset"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./fileReference"
+                                    mimeTypes="[image/*,video/*,audio/*,.pdf,.doc,.zip,.txt]"
+                                    multiple="{Boolean}false"
+                                    name="./downloadAsset"
+                                    title="Upload Asset"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <colorfield-swatch-example-brandColor
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                    fieldLabel="Brand Color"
+                                    name="./brandColors"
+                                    emptyText="Please choose a color"
+                                    disabled="{Boolean}false"
+                                    required="{Boolean}true"
+                                    variant="swatch"
+                                    autogenerateColors="off"
+                                    showDefaultColors="{Boolean}true"
+                                    showProperties="{Boolean}false"
+                                    showSwatches="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <color1
+                                            jcr:primaryType="nt:unstructured"
+                                            value="#FF4136"/>
+                                    <color2
+                                            jcr:primaryType="nt:unstructured"
+                                            value="#0077D9"/>
+                                </items>
+                            </colorfield-swatch-example-brandColor>
+                            <colorfield-properties-example-brandColor
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                    fieldLabel="Brand Color"
+                                    name="./brandColor"
+                                    emptyText="Please choose a color"
+                                    disabled="{Boolean}false"
+                                    required="{Boolean}true"
+                                    variant="default"
+                                    autogenerateColors="off"
+                                    showDefaultColors="{Boolean}false"
+                                    showProperties="{Boolean}true"
+                                    showSwatches="{Boolean}false"/>
+
+
+                        </items>
+                    </column>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>
