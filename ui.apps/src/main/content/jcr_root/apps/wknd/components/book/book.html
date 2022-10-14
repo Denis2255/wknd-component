@@ -1,0 +1,12 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Book">
+
+    <div>${model.title}</div>
+    <div>First Name: ${model.fname}</div>
+    <div>Last Name: ${model.lname}</div>
+
+<p><b>Books</b></p>
+    <ul data-sly-list.items="${model.books}">
+    <p>
+        ${items.bookName} - ${items.yearOfCreation}
+    </p></ul>
+</div>

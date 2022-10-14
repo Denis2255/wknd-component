@@ -10,12 +10,15 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.factory.ModelFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 
 @Model(
         adaptables = {SlingHttpServletRequest.class},
@@ -24,6 +27,7 @@ import java.util.List;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 public class BylineImpl implements Byline {
+    private static final Logger LOG = LoggerFactory.getLogger(BylineImpl.class);
     protected static final String RESOURCE_TYPE = "wknd/components/byline";
     private Image image;
     @ValueMapValue
@@ -49,6 +53,7 @@ public class BylineImpl implements Byline {
 
     @Override
     public List<String> getOccupations() {
+        LOG.info("occupations add");
         if (occupations != null) {
             Collections.sort(occupations);
             return new ArrayList<String>(occupations);

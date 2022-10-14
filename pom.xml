@@ -157,6 +157,7 @@
                                 <goal>bnd-process</goal>
                             </goals>
                             <configuration>
+                                <!--suppress UnresolvedMavenProperty -->
                                 <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
 
