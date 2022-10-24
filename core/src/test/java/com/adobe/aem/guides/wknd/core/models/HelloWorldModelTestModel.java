@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Simple JUnit test verifying the HelloWorldModel
  */
 @ExtendWith(AemContextExtension.class)
-class HelloWorldModelTest {
+class HelloWorldModelTestModel {
 
     private HelloWorldModel hello;
 

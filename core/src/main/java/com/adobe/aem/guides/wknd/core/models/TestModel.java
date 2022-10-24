@@ -1,9 +1,8 @@
 package com.adobe.aem.guides.wknd.core.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public interface Test {
+public interface TestModel {
     List<String> getWords();
     Boolean getChecked();
 }

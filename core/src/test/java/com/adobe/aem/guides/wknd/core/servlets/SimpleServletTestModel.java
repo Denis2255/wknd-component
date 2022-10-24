@@ -30,7 +30,7 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(AemContextExtension.class)
-class SimpleServletTest {
+class SimpleServletTestModel {
 
     private SimpleServlet fixture = new SimpleServlet();
 

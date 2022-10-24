@@ -13,22 +13,16 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wknd/components/container"
             layout="simple">
-            <navigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wknd/components/navigation"
-                collectAllPages="false"
-                navigationRoot="/content/wknd/us/en"
-                skipNavigationRoot="false"
-                structureDepth="1"/>
-            <languagenavigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wknd/components/languagenavigation"
-                navigationRoot="/content/wknd/us"
-                structureDepth="2"/>
             <search
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wknd/components/search"
                 searchRoot="/content/wknd/us"/>
+            <navigation
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/navig"/>
+            <separator
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/separator"/>
         </root>
     </jcr:content>
 </jcr:root>

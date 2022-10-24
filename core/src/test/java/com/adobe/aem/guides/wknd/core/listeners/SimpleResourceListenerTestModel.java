@@ -30,7 +30,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SimpleResourceListenerTest {
+class SimpleResourceListenerTestModel {
 
     private SimpleResourceListener fixture = new SimpleResourceListener();
 

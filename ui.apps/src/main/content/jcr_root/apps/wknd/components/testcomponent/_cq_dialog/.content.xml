@@ -14,13 +14,11 @@
                 <items
                         jcr:primaryType="nt:unstructured">
                     <words
-                            granite:class="foundation-toggleable cmp-teaser__editor-multifield_actions"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                             composite="{Boolean}false"
                             fieldLabel="Words">
                         <field
-                                granite:class=""
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 name="./words"/>
