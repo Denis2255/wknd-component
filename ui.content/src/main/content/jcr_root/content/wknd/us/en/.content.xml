@@ -8,7 +8,7 @@
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/wknd/settings/wcm/templates/page-content"
-        sling:resourceType="wknd/components/page"
+        sling:resourceType="wknd/components/homepage"
     >
         <root
             jcr:primaryType="nt:unstructured"
