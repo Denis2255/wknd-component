@@ -10,17 +10,17 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Model(adaptables = SlingHttpServletRequest.class,
-adapters = Share.class,
-defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
-resourceType = {ShareImpl.RESOURCE_TYPE})
-public class ShareImpl implements Share{
-    static final String RESOURCE_TYPE="wknd/components/sharecomponent";
+        adapters = Share.class,
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
+        resourceType = {ShareImpl.RESOURCE_TYPE})
+public class ShareImpl implements Share {
+    static final String RESOURCE_TYPE = "wknd/components/sharecomponent";
     @ValueMapValue
     private String title;
 
     @Inject
     @Via("resource")
-   private List<LinkItems> links;
+    private List<LinkItems> links;
 
     @Override
     public String getTitle() {
