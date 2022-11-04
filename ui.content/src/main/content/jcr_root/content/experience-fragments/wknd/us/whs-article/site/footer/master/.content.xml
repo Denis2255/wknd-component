@@ -14,6 +14,9 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wknd/components/container"
                 layout="responsiveGrid">
+            <image
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/textimage"/>
             <separator
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wknd/components/separator"/>
@@ -21,18 +24,25 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wknd/components/sharecomponent"
                     title="NewName">
+                <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Title of Component"
+                        name="./title"
+                        sling:hideResource="{Boolean}true"/>
                 <links
                         jcr:primaryType="nt:unstructured">
-                        <item0
-                        jcr:primaryType="nt:unstructured"
-                        firstNameLink="youtube"
-                        secondNameLink="facebook"
-                        thirdNameLink="google"/>
+                    <item0
+                            jcr:primaryType="nt:unstructured"
+                            firstNameLink="Cookie Policy"
+                            secondNameLink="Privacy Policy"
+                            thirdNameLink="support"/>
                 </links>
             </share>
-            <separator
+            <text
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wknd/components/separator"/>
+                    sling:resourceType="wknd/components/text"
+                    text="© World Handicap System 2022. All Rights Reserved."/>
         </root>
     </jcr:content>
 </jcr:root>

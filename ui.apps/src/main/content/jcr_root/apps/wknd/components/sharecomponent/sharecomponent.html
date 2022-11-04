@@ -1,15 +1,13 @@
 <div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Share">
 
-    <div>${model.title}</div>
-
-    <p><b>Links</b></p>
     <ul data-sly-list.items="${model.links}">
 
-<!--        <p><a class="list" href="${items.firstNameLink @ extension ='com'}"> ${items.firstNameLink}</a></p>-->
-<!--        <p><a class="list" href="${items.secondNameLink @ extension ='com'}"> ${items.secondNameLink}</a></p>-->
+        <!--        <p><a class="list" href="${items.firstNameLink @ extension ='com'}"> ${items.firstNameLink}</a></p>-->
+        <!--        <p><a class="list" href="${items.secondNameLink @ extension ='com'}"> ${items.secondNameLink}</a></p>-->
 
-        <p><a href="https://www.${items.firstNameLink}.com">${items.firstNameLink}</a></p>
-        <p><a href="https://www.${items.secondNameLink}.com">${items.secondNameLink}</a></p>
-        <p><a href="https://www.${items.thirdNameLink}.com">${items.thirdNameLink}</a></p>
+        <p align="center"><a href="https://www.${items.firstNameLink}.com">${items.firstNameLink}</a>
+            <a href="https://www.${items.secondNameLink}.com">${items.secondNameLink}</a>
+            <a href="https://www.${items.thirdNameLink}.com">${items.thirdNameLink}</a>
+            </p>
     </ul>
 </div>

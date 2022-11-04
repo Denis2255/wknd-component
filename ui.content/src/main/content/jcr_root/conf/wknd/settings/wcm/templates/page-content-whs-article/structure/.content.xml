@@ -13,28 +13,11 @@
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wknd/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/wknd/us/en/site/header/master"/>
-            <container
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wknd/components/container"
-                layout="responsiveGrid">
-                <title
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wknd/components/title"
-                    editable="{Boolean}true"/>
-                <links
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="wknd/components/sharecomponent"
-                        editable="{Boolean}true"/>
-                <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="wknd/components/text"
-                        editable="{Boolean}true"/>
-            </container>
+                fragmentVariationPath="/content/experience-fragments/wknd/us/whs-article/site/header/master"/>
             <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wknd/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/wknd/us/en/site/footer/master"/>
+                fragmentVariationPath="/content/experience-fragments/wknd/us/whs-article/site/footer/master"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
