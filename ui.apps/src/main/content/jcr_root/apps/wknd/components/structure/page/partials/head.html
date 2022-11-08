@@ -1,5 +1,5 @@
 <!--/*
-    Copyright 2017 Adobe Systems Incorporated
+    Copyright 2015 Adobe Systems Incorporated
   
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -13,9 +13,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-     <sly data-sly-call="${clientlib.css @ categories='aemgeeks.page'}"/>
-</sly>
-<!--/* Include Context Hub */-->
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<meta charset="utf-8" data-sly-use.head="head.js">
+<title>${currentPage.title || currentPage.name}</title>
+<meta name="keywords" content="${head.keywords}"/>
+<meta name="description" content="${properties.jcr:description}"/>
+<link data-sly-test="${head.favIcon}" rel="icon" href="${head.favIcon}"/>
