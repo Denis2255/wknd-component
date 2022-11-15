@@ -13,11 +13,11 @@
                 layout="responsiveGrid">
             <container
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="USGA/components/container"
+                    sling:resourceType="wknd/components/container"
                     layout="responsiveGrid">
                 <container
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="USGA/components/container"
+                        sling:resourceType="wknd/components/container"
                         layout="responsiveGrid">
                     <title
                             jcr:primaryType="nt:unstructured"

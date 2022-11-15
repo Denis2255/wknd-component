@@ -1,2 +1,2 @@
 #base=js
-byline.js
+by.js
