@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          serviceName="Clone wknd service for Author Run Mode"
+          getServiceCount="2"
+          getLiveData="{Boolean}true"
+          getCountries="[de,ln,he]"
+          getRunMode="author"/>
