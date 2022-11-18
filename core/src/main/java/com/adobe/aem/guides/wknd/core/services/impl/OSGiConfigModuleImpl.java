@@ -21,9 +21,7 @@ public class OSGiConfigModuleImpl implements OSGiConfigModule {
         serviceURL=wkndosGiConfig.serviceURL();
     }
     @Override
-    public int getServiceId() {
-        return serviceId;
-    }
+    public int getServiceId() {return serviceId;}
     @Override
     public String getServiceName() {
         return serviceName;

@@ -1,0 +1,12 @@
+<h1>OSGi Configuration Factory</h1>
+<div data-sly-use.osgiconfig="com.adobe.aem.guides.wknd.core.models.ComponentFactory"
+data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
+    <p> Service Name : <b>${osgiconfig.serviceName}</b></p>
+    <p> Service Count : <b>${osgiconfig.serviceCount}</b></p>
+    <p> Live Data : <b>${osgiconfig.liveData}</b></p>
+    <p> Run Mode : <b>${osgiconfig.runModes}</b></p>
+    <p> <b>Countries</b></p>
+    <ul data-sly-list="${osgiconfig.countries}">
+        <p>${item}</p>
+    </ul>
+</div>

@@ -10,27 +10,21 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component (service = OSGiFactoryConfig.class,configurationPolicy = ConfigurationPolicy.REQUIRE)
+@Component(service = OSGiFactoryConfig.class, configurationPolicy = ConfigurationPolicy.REQUIRE)
 @Designate(ocd = WKNDOSGiFactoryConfig.class, factory = true)
 public class OSGiFactoryConfigImpl implements OSGiFactoryConfig {
-    private static final Logger LOGGER = LoggerFactory.getLogger(OSGiFactoryConfigImpl.class);
 
-    private int configID;
-    private String serviceName;
-    private String serviceURL;
+    public WKNDOSGiFactoryConfig serviceConfig;
     private List<OSGiFactoryConfig> configsList;
 
     @Activate
-    @Modified
-    protected void activate(final WKNDOSGiFactoryConfig config) {
-        configID = config.configID();
-        serviceName=config.serviceName();
-        serviceURL=config.serviceURL();
+    protected void activate(final WKNDOSGiFactoryConfig serviceConfig) {
+        this.serviceConfig = serviceConfig;
     }
 
     @Reference(service = OSGiFactoryConfig.class, cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
     public void bindOSGiFactoryConfig(final OSGiFactoryConfig config) {
-        if (configsList == null){
+        if (configsList == null) {
             configsList = new ArrayList<>();
         }
         configsList.add(config);
@@ -42,30 +36,27 @@ public class OSGiFactoryConfigImpl implements OSGiFactoryConfig {
     }
 
     @Override
-    public int getConfigID() {
-        return configID;
-    }
-    @Override
     public String getServiceName() {
-        return serviceName;
-    }
-    @Override
-    public String getServiceURL() {
-        return serviceURL;
-    }
-
-
-    @Override
-    public List<OSGiFactoryConfig> getAllConfigs(){
-        return configsList;
+        return serviceConfig.serviceName();
     }
 
     @Override
-    public OSGiFactoryConfig get(int configID) {
-        for (OSGiFactoryConfig confFact : configsList) {
-            if (configID==confFact.getConfigID())
-                return confFact;
-        }
-        return null;
+    public int getServiceCount() {
+        return serviceConfig.getServiceCount();
+    }
+
+    @Override
+    public boolean isLiveData() {
+        return serviceConfig.getLiveData();
+    }
+
+    @Override
+    public String[] getCountries() {
+        return serviceConfig.getCountries();
+    }
+
+    @Override
+    public String getRunModes() {
+        return serviceConfig.getRunMode();
     }
 }

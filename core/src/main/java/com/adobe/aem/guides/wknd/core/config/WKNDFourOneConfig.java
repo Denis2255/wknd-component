@@ -12,5 +12,5 @@ public @interface WKNDFourOneConfig {
             name = "Service name",
             description = "Enter name",
             type = AttributeType.STRING)
-    public String serviceName() default "One config";
+    public String serviceName() default "First config";
 }
