@@ -1,13 +1,10 @@
 package com.adobe.aem.guides.wknd.core.servlets;
 
-import java.io.IOException;
-import java.util.Objects;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
 
-import com.adobe.aem.guides.wknd.core.services.ServiceResolverForServlet;
+import com.adobe.aem.guides.wknd.core.services.ServiceResourceResolver;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ModifiableValueMap;
@@ -30,7 +27,7 @@ import static javax.servlet.http.HttpServletResponse.SC_OK;
 })
 public class ReadPageInformationServlet extends SlingAllMethodsServlet {
     @Reference
-    private ServiceResolverForServlet serviceResolverForServlet;
+    private ServiceResourceResolver serviceResourceResolver;
 
     private static final String PATHNODE = "/content/wknd/us/en/1";
     private static final String PROPERTY = "secondTitile";

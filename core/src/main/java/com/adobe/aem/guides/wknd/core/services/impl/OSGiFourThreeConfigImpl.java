@@ -13,15 +13,6 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 @Designate(ocd = OSGiFourThreeConfigImpl.SeparateFourThreeConfig.class)
 public class OSGiFourThreeConfigImpl implements OSGiFourOneConfig {
 
-    @ObjectClassDefinition(name = "WKND - FourThree Config",
-            description = "third")
-    public @interface SeparateFourThreeConfig {
-        @AttributeDefinition(
-                name = "Service name",
-                description = "Enter name",
-                type = AttributeType.STRING)
-        public String serviceName();
-    }
     private String serviceName;
 
     @Activate
@@ -32,5 +23,15 @@ public class OSGiFourThreeConfigImpl implements OSGiFourOneConfig {
     @Override
     public String getServiceName() {
         return serviceName;
+    }
+
+    @ObjectClassDefinition(name = "WKND - FourThree Config",
+            description = "third")
+    public @interface SeparateFourThreeConfig {
+        @AttributeDefinition(
+                name = "Service name",
+                description = "Enter name",
+                type = AttributeType.STRING)
+        public String serviceName();
     }
 }

@@ -11,15 +11,6 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 @Component(service = OSGiFourOneConfig.class, immediate = true)
 @Designate(ocd = OSGiFourTwoConfigImpl.SeparateFourTwoConfig.class)
 public class OSGiFourTwoConfigImpl implements OSGiFourOneConfig {
-    @ObjectClassDefinition(name = "WKND - FourTwo Config",
-            description = "second")
-    public @interface SeparateFourTwoConfig {
-        @AttributeDefinition(
-                name = "Service name",
-                description = "Enter name",
-                type = AttributeType.STRING)
-        public String serviceName() default "second config";
-    }
 
     private String serviceName;
 
@@ -31,5 +22,15 @@ public class OSGiFourTwoConfigImpl implements OSGiFourOneConfig {
     @Override
     public String getServiceName() {
         return serviceName;
+    }
+
+    @ObjectClassDefinition(name = "WKND - FourTwo Config",
+            description = "second")
+    public @interface SeparateFourTwoConfig {
+        @AttributeDefinition(
+                name = "Service name",
+                description = "Enter name",
+                type = AttributeType.STRING)
+        public String serviceName() default "second config";
     }
 }

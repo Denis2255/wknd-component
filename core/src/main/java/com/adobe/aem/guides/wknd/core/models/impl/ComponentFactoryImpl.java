@@ -23,8 +23,7 @@ public class ComponentFactoryImpl implements ComponentFactory {
     public boolean isLiveData(){
         return osGiFactoryConfig.isLiveData();
     }
-    public String[] getCountries(){
-        return osGiFactoryConfig.getCountries();
+    public String[] getCountries(){return osGiFactoryConfig.getCountries();
     }
     public String getRunModes(){
         return osGiFactoryConfig.getRunModes();
