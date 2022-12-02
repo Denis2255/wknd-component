@@ -19,7 +19,6 @@ public class ServiceResolverImpl implements ServiceResolver {
     public ResourceResolver getServiceResourceResolver() throws LoginException {
         final Map<String, Object> paramMap = new HashMap<>();
         paramMap.put(ResourceResolverFactory.SUBSERVICE, WKND_SERVICE_USER);
-        ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(paramMap);
-        return resolver;
+        return resourceResolverFactory.getServiceResourceResolver(paramMap);
     }
 }

@@ -5,5 +5,5 @@ import org.apache.sling.api.resource.ResourceResolver;
 
 public interface ServiceResourceResolver {
 
-    public ResourceResolver getServiceResourceResolver() throws LoginException;
+    ResourceResolver getServiceResourceResolver() throws LoginException;
 }
