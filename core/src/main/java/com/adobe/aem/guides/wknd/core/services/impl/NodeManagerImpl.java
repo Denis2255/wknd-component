@@ -20,10 +20,10 @@ import java.util.Optional;
 
 
 @Component(service = NodeManager.class, immediate = true)
-@Designate(ocd = NodeManagerImpl.ServletPathConfiguration.class)
+@Designate(ocd = NodeManagerImpl.ManagerNodeConfiguration.class)
 public class NodeManagerImpl implements NodeManager {
 
-    private ServletPathConfiguration configuration;
+    private ManagerNodeConfiguration configuration;
     private static final Logger LOG = LoggerFactory.getLogger(NodeManagerImpl.class);
 
     @Reference
@@ -31,32 +31,56 @@ public class NodeManagerImpl implements NodeManager {
 
     @Activate
     @Modified
-    public void activate(ServletPathConfiguration configuration) {
+    public void activate(ManagerNodeConfiguration configuration) {
         this.configuration = configuration;
     }
 
     @Override
     public boolean createNode() {
-        boolean getNode = false;
         try (ResourceResolver resourceResolver = serviceResourceResolver.getServiceResourceResolver()) {
-            Node node = Optional.ofNullable(resourceResolver.getResource(configuration.nodePath()))
-                    .map(r -> r.adaptTo(Node.class)).orElse(null);
-            if (node == null) {
-                LOG.info("Node is null");
-                return false;
+            boolean isSet = Optional.ofNullable(resourceResolver.getResource(configuration.nodePath()))
+                    .map(r -> r.adaptTo(Node.class))
+                    .map(node -> setPropertyForNode(node, configuration.propertyName(), configuration.propertyValue()))
+                    .orElse(false);
+            if (isSet) {
+                resourceResolver.commit();
+                return true;
             }
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+        return false;
+
+//        try (ResourceResolver resourceResolver = serviceResourceResolver.getServiceResourceResolver()) {
+//            Node node = Optional.ofNullable(resourceResolver.getResource(configuration.nodePath()))
+//                    .map(r -> r.adaptTo(Node.class)).orElse(null);
+//            if (node == null) {
+//                LOG.info("Node is null");
+//                return false;
+//            }
+//            Node createdNode = node.getNode(JcrConstants.JCR_CONTENT);
+//            createdNode.setProperty(configuration.propertyName(), configuration.propertyValue());
+//            resourceResolver.commit();
+//            return true;
+//        } catch (Exception e) {
+//            LOG.info(e.getMessage(), e);
+//        }
+//        return false;
+    }
+
+    private boolean setPropertyForNode(Node node, String propertyName, String value) {
+        try {
             Node createdNode = node.getNode(JcrConstants.JCR_CONTENT);
-            createdNode.setProperty(configuration.propertyName(), configuration.propertyValue());
-            resourceResolver.commit();
-            return true;
+            createdNode.setProperty(propertyName, value);
         } catch (Exception e) {
             LOG.info(e.getMessage(), e);
+            return false;
         }
-        return getNode;
+        return true;
     }
 
     @ObjectClassDefinition(name = "WKND_CUSTOM - Node Manager Configuration", description = "Node manager configuration")
-    public @interface ServletPathConfiguration {
+    public @interface ManagerNodeConfiguration {
         @AttributeDefinition(
                 name = "property name",
                 description = "name",

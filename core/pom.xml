@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
  |  Copyright 2017 Adobe Systems Incorporated
  |
@@ -165,7 +166,11 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.models.api</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.query</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
 
         <!-- Testing -->

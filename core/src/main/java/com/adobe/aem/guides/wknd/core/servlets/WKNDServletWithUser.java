@@ -3,7 +3,6 @@ package com.adobe.aem.guides.wknd.core.servlets;
 
 import com.adobe.aem.guides.wknd.core.services.NodeManager;
 import com.adobe.aem.guides.wknd.core.services.ServiceResourceResolver;
-import com.adobe.aem.guides.wknd.core.services.impl.NodeManagerImpl;
 import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -20,6 +19,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 import javax.servlet.Servlet;
 import java.io.IOException;
+import java.util.Optional;
 
 import static com.adobe.aem.guides.wknd.core.servlets.WKNDServletWithUser.SERVLET_PATH;
 
@@ -32,7 +32,7 @@ public class WKNDServletWithUser extends SlingAllMethodsServlet {
     public static final String SERVLET_PATH = "/bin/allowPage";
 
     @Reference
-    private ServiceResourceResolver serviceResourceResolver;
+    private NodeManager nodeManager;
 
     @Activate
     @Modified
@@ -40,29 +40,28 @@ public class WKNDServletWithUser extends SlingAllMethodsServlet {
         this.configuration = configuration;
     }
 
-    @Reference
-    private NodeManager nodeManager;
-
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-        if (!configuration.isOff()) {
-            boolean isNodeCreated = nodeManager.createNode();
-            if (isNodeCreated) {
-                response.setStatus(HttpStatus.SC_OK);
-                return;
-            }
-            response.setStatus(HttpStatus.SC_NOT_FOUND);
+        if (!configuration.isActive()) {
+            response.setStatus(HttpStatus.SC_SERVICE_UNAVAILABLE);
             return;
         }
-        response.setStatus(HttpStatus.SC_NOT_FOUND);
+
+        int httpStatus = Optional.of(nodeManager)
+                .map(NodeManager::createNode)
+                .map(isCreated -> {
+                    if (isCreated) { return HttpStatus.SC_OK; }
+                    return HttpStatus.SC_NOT_FOUND;
+                }).orElse(HttpStatus.SC_NOT_FOUND);
+        response.setStatus(httpStatus);
     }
 
-    @ObjectClassDefinition(name = "WKND_CUSTOM - Servlet Configuration", description = "Servlet configuration")
+    @ObjectClassDefinition(name = "WKND_CUSTOM - Servlet Configuration Is Off", description = "Servlet configuration")
     public @interface ServletConfiguration {
         @AttributeDefinition(
-                name = "Servlet is off",
+                name = "ServletIsActive",
                 type = AttributeType.BOOLEAN)
-        boolean isOff() default false;
+        boolean isActive();
     }
 }
 

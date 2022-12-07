@@ -639,11 +639,6 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>org.apache.sling</groupId>
-                <artifactId>org.apache.sling.query</artifactId>
-                <version>3.0.0</version>
-            </dependency>
-            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>1.7.25</version>
@@ -658,6 +653,11 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
             <!-- Apache Sling Dependencies -->
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.query</artifactId>
+                <version>3.0.0</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.models.api</artifactId>

@@ -1,6 +1,6 @@
 package com.adobe.aem.guides.wknd.core.servlets;
 
-import com.adobe.aem.guides.wknd.core.services.SearchService;
+import com.adobe.aem.guides.wknd.core.services.SearchServiceQueryBuilder;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -15,24 +15,27 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
+import static com.adobe.aem.guides.wknd.core.servlets.SearchServletQueryBuilder.SERVLET_PATH;
+
 @Component(service = Servlet.class,
-        property = {"sling.servlet.paths=" + SearchServlet.SERVLET_PATH, "sling.servlet.methods=" + HttpConstants.METHOD_GET})
-public class SearchServlet extends SlingAllMethodsServlet {
-    private static final Logger LOG = LoggerFactory.getLogger(SearchServlet.class);
+        property = {"sling.servlet.paths=" + SERVLET_PATH, "sling.servlet.methods=" + HttpConstants.METHOD_GET})
+public class SearchServletQueryBuilder extends SlingAllMethodsServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SearchServletQueryBuilder.class);
 
     public static final String SERVLET_PATH = "/bin/search";
     @Reference
-    SearchService searchService;
+    SearchServiceQueryBuilder searchServiceQueryBuilder;
 
     @Override
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
         JSONObject searchResult = null;
         try {
-            String searchtext = req.getRequestParameter("searchText").getString();
+            String searchText = req.getRequestParameter("searchText").getString();
             int pageNumber = Integer.parseInt(req.getRequestParameter("pageNumber").getString()) - 1;
             int resultPerPage = Integer.parseInt(req.getRequestParameter("resultPerPage").getString());
             int startResult = pageNumber * resultPerPage;
-            searchResult = searchService.searchResult(searchtext, startResult, resultPerPage);
+            searchResult = searchServiceQueryBuilder.searchResult(searchText, startResult, resultPerPage);
         } catch (Exception e) {
             LOG.info(e.getMessage(), e);
         }

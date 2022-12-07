@@ -1,7 +1,7 @@
 package com.adobe.aem.guides.wknd.core.services.impl;
 
 
-import com.adobe.aem.guides.wknd.core.services.SearchService;
+import com.adobe.aem.guides.wknd.core.services.SearchServiceQueryBuilder;
 import com.adobe.aem.guides.wknd.core.utils.ResolverUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -23,10 +23,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component(service = SearchService.class, immediate = true)
-public class SearchServiceImpl implements SearchService {
+@Component(service = SearchServiceQueryBuilder.class, immediate = true)
+public class SearchServiceQueryBuilderImpl implements SearchServiceQueryBuilder {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SearchServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SearchServiceQueryBuilderImpl.class);
 
     @Reference
     QueryBuilder queryBuilder;
@@ -36,7 +36,7 @@ public class SearchServiceImpl implements SearchService {
 
     public Map<String, String> createTextSearchQuery(String searchText, int startResult, int resultPerPage) {
         Map<String, String> queryMap = new HashMap<>();
-        queryMap.put("path", "/content/wknd");
+        queryMap.put("path", "/content/");
         queryMap.put("type", "cq:Page");
         queryMap.put("fulltext", searchText);
         queryMap.put("p.offset", Long.toString(startResult));
@@ -77,7 +77,6 @@ public class SearchServiceImpl implements SearchService {
                 resultObject.put("title", page.getTitle());
                 resultObject.put("path", page.getPath());
                 resultArray.put(resultObject);
-                LOG.info("\n Page {} ", page.getPath());
             }
             searchResult.put("results", resultArray);
 
