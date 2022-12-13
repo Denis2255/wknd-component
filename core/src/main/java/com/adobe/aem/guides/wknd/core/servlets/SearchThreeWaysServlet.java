@@ -2,7 +2,6 @@ package com.adobe.aem.guides.wknd.core.servlets;
 
 
 import com.adobe.aem.guides.wknd.core.services.SearchManager;
-import com.adobe.aem.guides.wknd.core.services.impl.NodeManagerImpl;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.LoginException;
@@ -27,15 +26,11 @@ public class SearchThreeWaysServlet extends SlingAllMethodsServlet {
     private static final Logger LOG = LoggerFactory.getLogger(SearchThreeWaysServlet.class);
 
     @Reference
-    SearchManager searchManager;
+    private SearchManager searchManager;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-        try {
-            response.getWriter().println(searchManager.findPage());
-        } catch (LoginException e) {
-            LOG.error(e.getMessage(), e);
-        }
+        response.getWriter().println(searchManager.findPages());
     }
 }
 
