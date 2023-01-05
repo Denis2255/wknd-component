@@ -4,7 +4,6 @@ package com.adobe.aem.guides.wknd.core.servlets;
 import com.adobe.aem.guides.wknd.core.services.SearchManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.service.component.annotations.Component;

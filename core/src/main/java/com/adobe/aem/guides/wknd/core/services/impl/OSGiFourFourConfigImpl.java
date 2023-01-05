@@ -3,6 +3,7 @@ package com.adobe.aem.guides.wknd.core.services.impl;
 import com.adobe.aem.guides.wknd.core.services.OSGiFourOneConfig;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.Designate;

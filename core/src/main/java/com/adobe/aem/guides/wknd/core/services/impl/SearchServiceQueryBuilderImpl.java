@@ -51,7 +51,6 @@ public class SearchServiceQueryBuilderImpl implements SearchServiceQueryBuilder 
             ResourceResolver resourceResolver = ResolverUtil.newResolver(resourceResolverFactory);
             final Session session = resourceResolver.adaptTo(Session.class);
             Query query = queryBuilder.createQuery(PredicateGroup.create(createTextSearchQuery(searchText, startResult, resultPerPage)), session);
-
             SearchResult result = query.getResult();
 
             int perPageResults = result.getHits().size();

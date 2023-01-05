@@ -6,8 +6,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.osgi.service.metatype.annotations.Option;
 
 
-@ObjectClassDefinition(name = "AEM WKND - OSGi Factory",
-        description = "He")
+@ObjectClassDefinition(name = "AEM WKND - OSGi Factory")
 public @interface WKNDOSGiFactoryConfig {
 
     @AttributeDefinition(

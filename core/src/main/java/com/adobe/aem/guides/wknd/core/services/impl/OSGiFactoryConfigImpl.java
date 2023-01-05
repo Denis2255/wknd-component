@@ -14,7 +14,7 @@ import java.util.List;
 @Designate(ocd = WKNDOSGiFactoryConfig.class, factory = true)
 public class OSGiFactoryConfigImpl implements OSGiFactoryConfig {
 
-    public WKNDOSGiFactoryConfig serviceConfig;
+    private WKNDOSGiFactoryConfig serviceConfig;
     private List<OSGiFactoryConfig> configsList;
 
     @Activate

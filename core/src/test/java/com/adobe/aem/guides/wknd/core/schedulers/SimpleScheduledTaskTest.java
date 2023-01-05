@@ -17,6 +17,7 @@ package com.adobe.aem.guides.wknd.core.schedulers;
 
 import java.util.List;
 
+import com.adobe.aem.guides.wknd.core.helper.schedulers.SimpleScheduledTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -5,7 +5,6 @@ import com.day.cq.replication.ReplicationAction;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.crx.JcrConstants;
 import org.apache.sling.api.resource.ModifiableValueMap;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -15,7 +14,6 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
 import java.util.Optional;
 
 
@@ -34,7 +32,8 @@ public class ReplicationEventHandler implements EventHandler {
     @Override
     public void handleEvent(Event event) {
         String statusReplication = "";
-        String getPath = "/content/wknd/us/eqw";
+        String getPath = ReplicationAction.fromEvent(event).getPath();
+//        String getPath = "/content/wknd/us/eqw";
         LOG.info("\n Event Type : {} ", event.getTopic());
         ReplicationActionType replicationType = ReplicationAction.fromEvent(event).getType();
         if (replicationType.equals(ReplicationActionType.ACTIVATE)) {

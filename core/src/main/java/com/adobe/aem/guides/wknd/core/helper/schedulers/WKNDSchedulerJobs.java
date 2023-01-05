@@ -1,4 +1,4 @@
-package com.adobe.aem.guides.wknd.core.schedulers;
+package com.adobe.aem.guides.wknd.core.helper.schedulers;
 
 
 import org.apache.sling.commons.scheduler.Job;

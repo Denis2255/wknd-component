@@ -17,24 +17,24 @@ import org.slf4j.LoggerFactory;
         property = {
                 JobConsumer.PROPERTY_TOPICS + "=wknd/job"
         })
-public class WKNDJobConsumer implements JobConsumer{
-        private static final Logger LOG = LoggerFactory.getLogger(WKNDJobConsumer.class);
+public class WKNDJobConsumer implements JobConsumer {
+    private static final Logger LOG = LoggerFactory.getLogger(WKNDJobConsumer.class);
 
-        @Reference
-        ResourceResolverFactory resourceResolverFactory;
+    @Reference
+    ResourceResolverFactory resourceResolverFactory;
 
-        @Override
-        public JobResult process(Job job) {
-                try {
-                        ResourceResolver resourceResolver= ResolverUtil.newResolver(resourceResolverFactory);
-                        String path = (String) job.getProperty("path");
-                        String event= (String) job.getProperty("event");
-                        String heropage=(String) job.getProperty("heropage");
-                        LOG.info("\n Job executing for  : {} ",resourceResolver.getResource(heropage).getName());
-                        return JobResult.OK;
-                } catch (Exception e) {
-                        LOG.info("\n Error in Job Consumer : {}  ", e.getMessage());
-                        return JobResult.FAILED;
-                }
+    @Override
+    public JobResult process(Job job) {
+        try {
+            ResourceResolver resourceResolver = ResolverUtil.newResolver(resourceResolverFactory);
+            String path = (String) job.getProperty("path");
+            String event = (String) job.getProperty("event");
+            String heropage = (String) job.getProperty("heropage");
+            LOG.info("\n Job executing for  : {} ", resourceResolver.getResource(heropage).getName());
+            return JobResult.OK;
+        } catch (Exception e) {
+            LOG.info("\n Error in Job Consumer : {}  ", e.getMessage());
+            return JobResult.FAILED;
         }
+    }
 }

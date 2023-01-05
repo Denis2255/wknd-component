@@ -1,4 +1,4 @@
-package com.adobe.aem.guides.wknd.core.schedulers;
+package com.adobe.aem.guides.wknd.core.helper.schedulers;
 
 
 import org.apache.sling.commons.scheduler.ScheduleOptions;
@@ -39,7 +39,6 @@ public class WKNDScheduler implements Runnable {
         ScheduleOptions scheduleOptionsNow = scheduler.NOW(3, 5);
         scheduler.schedule(this, scheduleOptionsNow);
     }
-
     @Deactivate
     protected void deactivate(ServiceConfigurationWKNDScheduler config) {
         removeScheduler();

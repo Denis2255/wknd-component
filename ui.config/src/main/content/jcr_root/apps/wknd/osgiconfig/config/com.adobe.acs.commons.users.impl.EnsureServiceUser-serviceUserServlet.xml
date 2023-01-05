@@ -5,4 +5,4 @@
           principalName="service-user-servlet"
           operation="add"
           ensure-immediately="{Boolean}true"
-          aces="[type=allow;privileges=jcr:read\,rep:write;path=/content/wknd/us/en/1;rep:glob=/jcr:content/*]"/>
+          aces="[type=allow;privileges=jcr:read\,rep:write;path=/content/*;rep:glob=/jcr:content/*]"/>
