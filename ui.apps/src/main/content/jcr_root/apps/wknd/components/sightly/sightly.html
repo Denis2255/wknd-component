@@ -1,0 +1,18 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Share"></div>
+<h1> String concatenation</h1>
+<div>${['one', 'two' , 'three'] @ join='; '} </div>
+<h1> Global objects</h1>
+<div> Dialog:<b> ${properties.title} </b></div>
+<div> Page property:<b> ${pageProperties.jcr:title} </b></div>
+<div> Inherited page property:<b> ${inheritedPageProperties['jcr:title']} </b></div>
+<div> Component:<b> ${component.title} </b></div>
+<div> Component context:<b> ${componentContext.page.title} </b></div>
+<div> Design node:<b> ${currentDesign.path} </b></div>
+<div> Current node:<b> ${currentNode.path} </b></div>
+<div> Current page:<b> ${currentPage.path} </b></div>
+<div> Resource:<b> ${resource.path} </b></div>
+<div> Resource Page:<b> ${resourcePage.path} </b></div>
+<div> Resource Design:<b> ${resourceDesign.path} </b></div>
+<div> WCM Mode:<b> ${wcmmode.edit} </b></div>
+<h1>Passing parameters</h1>
+
