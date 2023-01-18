@@ -1,0 +1,9 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.BannerModel">
+    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+    data-sly-test.hasContent="${!byline.empty}"
+    class="cmp-byline">
+    <div class="cmp-byline__image"
+         data-sly-resource="${ '.' @ resourceType = 'core/wcm/components/image/v2/image' }"></div>
+</div>
+    <sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
+<a href="${model.link @ extension = 'com'}">${model.title}</a>
