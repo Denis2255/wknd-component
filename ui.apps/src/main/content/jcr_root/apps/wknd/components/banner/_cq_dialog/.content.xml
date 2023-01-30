@@ -14,12 +14,10 @@
                     sling:resourceType="granite/ui/components/coral/foundation/tabs"
                     maximized="{Boolean}false">
                 <items jcr:primaryType="nt:unstructured">
-                    <image
-                            jcr:primaryType="nt:unstructured"
-                            sling:hideResource="{Boolean}false"/>
                     <metadata
                             jcr:primaryType="nt:unstructured"
-                            sling:hideResource="{Boolean}true"/>
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            path="apps/wknd/components/banner/image"/>
                     <fields
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Fields"

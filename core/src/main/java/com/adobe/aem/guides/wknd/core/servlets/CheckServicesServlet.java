@@ -1,6 +1,6 @@
 package com.adobe.aem.guides.wknd.core.servlets;
 
-import com.adobe.aem.guides.wknd.core.services.OSGIWithoutConfig;
+import com.adobe.aem.guides.wknd.core.services.OSGIWithoutConfigService;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -23,10 +23,10 @@ public class CheckServicesServlet extends SlingAllMethodsServlet {
     private static final Logger LOG = LoggerFactory.getLogger(CheckServicesServlet.class);
 
     @Reference
-    private OSGIWithoutConfig osgiWithoutConfig;
+    private OSGIWithoutConfigService osgiWithoutConfigService;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println(osgiWithoutConfig.getWord());
+        response.getWriter().println(osgiWithoutConfigService.getWord());
     }
 }

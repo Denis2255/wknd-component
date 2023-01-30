@@ -1,24 +1,24 @@
 package com.adobe.aem.guides.wknd.core.servlets;
 
 import com.adobe.aem.guides.wknd.core.services.ServiceResourceResolver;
-import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.request.RequestPathInfo;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -36,13 +36,26 @@ public class GetLevelServlet extends SlingAllMethodsServlet {
 
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
         try (ResourceResolver resolver = resourceResolver.getServiceResourceResolver()) {
-
-//            PageManager pageManager = resolver.adaptTo(PageManager.class);
-            resp.setContentType("application/json");
-            resp.getWriter().println(" ");
-
+            Resource resource = req.getResource();
+            String resourcePath = resource.getPath();
+            Page page = Optional.ofNullable(resolver.adaptTo(PageManager.class))  //
+                    .map(pm -> pm.getContainingPage(resource)).orElse(null);
+            if (page == null) {
+                LOG.info("Page is null");
+                return;
+            }
+            int valueOfSlash = resolveComponentLevel(resourcePath, page.getPath());
+            resp.setContentType("text/html");
+            resp.getWriter().println("Nesting level of component: " + valueOfSlash + " " +
+                    "Title: " + page.getTitle());
         } catch (Exception e) {
             LOG.info(e.getMessage(), e);
         }
+    }
+
+    private int resolveComponentLevel(String componentPath, String pathPage) {  //
+        String differenceInPath = StringUtils.difference(pathPage, componentPath);
+        return StringUtils.countMatches(differenceInPath, '/');
+
     }
 }

@@ -1,8 +1,8 @@
 <div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Share">
     <div>${model.title }</div>
     <ul data-sly-list.items="${model.links}">
-        <p align="center"><a href="https://www.${items.firstNameLink}.com">${items.firstNameLink}</a>
-            <a href="https://www.${items.secondNameLink}.com">${items.secondNameLink}</a>
+        <p align="center"><a href="https://www.${items.firstNameLink @ extension = 'com'}  ">${items.firstNameLink}</a>
+            <a href="https://www.${items.secondNameLink @ extension = 'com'}">${items.secondNameLink}</a>
             <a href="https://www.${items.thirdNameLink}.com">${items.thirdNameLink}</a>
         </p>
     </ul>

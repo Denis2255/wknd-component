@@ -1,24 +1,20 @@
 
-(function($, Coral) {
-    "use strict";
+(function($) {
 
+    var SELECTOR = "text-validation-first-upper",
+        foundationReg = $(window).adaptTo("foundation-registry");
 
-    var registry = $(window).adaptTo("foundation-registry");
+    foundationReg.register("foundation.validation.validator", {
+        selector: "[data-validation='" + SELECTOR + "']",
+        validate: function(el) {
+            var pattern = /^[A-Z]/;
+            var error_message = "Please add Upper Case for first letter in Text";
+            var result = el.value.match(pattern);
 
-    registry.register("foundation.validation.validator", {
-        selector: "[data-validation=text-validation-first-upper]",
-        validate: function(element) {
-            let el = $(element);
-            let pattern=/^[a-z]/;
-            let value=el.val();
-            if(pattern.test(value)){
-                return "Please add Upper Case for first letter in Text";
+            if (result === null) {
+                return error_message;
             }
-
         }
     });
 
-
-
-
-})(jQuery, Coral);
+}(jQuery));

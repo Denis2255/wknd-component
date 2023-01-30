@@ -1,9 +1,9 @@
 <div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.BannerModel">
-    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
-    data-sly-test.hasContent="${!byline.empty}"
-    class="cmp-byline">
-    <div class="cmp-byline__image"
-         data-sly-resource="${ '.' @ resourceType = 'core/wcm/components/image/v2/image' }"></div>
+    <sly data-sly-use.image="image.html"
+         data-sly-call="${image.image @ size='small' , path = 'http://localhost:4502/assetdetails.html/content/dam/1/7c967a6943e3288eb792bab8b6360d35.jpg'}"></sly>
+    <h1 align="center">${model.heading}</h1>
+    <p align="center">${model.text}</p>
+    <form align="center" action="${model.link @ extension = 'com'}" target="_blank">
+        <button>${model.title}</button>
+    </form>
 </div>
-    <sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
-<a href="${model.link @ extension = 'com'}">${model.title}</a>

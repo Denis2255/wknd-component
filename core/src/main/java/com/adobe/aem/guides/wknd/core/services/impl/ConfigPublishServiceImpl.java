@@ -1,9 +1,10 @@
 package com.adobe.aem.guides.wknd.core.services.impl;
 
 
-import com.adobe.aem.guides.wknd.core.services.OSGIWithConfigPublish;
+import com.adobe.aem.guides.wknd.core.services.ConfigPublishService;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.AttributeType;
@@ -13,11 +14,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@Component(service = OSGIWithConfigPublish.class, immediate = true)
-@Designate(ocd = OSGIWithConfigPublishImpl.ConfigOnlyPublish.class)
-public class OSGIWithConfigPublishImpl implements OSGIWithConfigPublish {
+@Component(service = ConfigPublishService.class, immediate = true,
+        configurationPolicy = ConfigurationPolicy.REQUIRE)
+@Designate(ocd = ConfigPublishServiceImpl.ConfigOnlyPublish.class)
+public class ConfigPublishServiceImpl implements ConfigPublishService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(OSGIWithConfigPublishImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ConfigPublishServiceImpl.class);
     private ConfigOnlyPublish configuration;
 
     @Activate

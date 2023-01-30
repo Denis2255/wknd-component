@@ -1,5 +1,5 @@
 package com.adobe.aem.guides.wknd.core.services;
 
-public interface OSGIWithConfigPublish {
+public interface ConfigPublishService {
     String getWords();
 }

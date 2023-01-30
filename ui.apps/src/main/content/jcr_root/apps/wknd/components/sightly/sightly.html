@@ -1,6 +1,6 @@
-<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Share"></div>
 <h1> String concatenation</h1>
-<div>${['one', 'two' , 'three'] @ join='; '} </div>
+<div>${['one', 'two' , 'three'] @ join='; '}</div>
+
 <h1> Global objects</h1>
 <div> Dialog:<b> ${properties.title} </b></div>
 <div> Page property:<b> ${pageProperties.jcr:title} </b></div>
@@ -14,5 +14,26 @@
 <div> Resource Page:<b> ${resourcePage.path} </b></div>
 <div> Resource Design:<b> ${resourceDesign.path} </b></div>
 <div> WCM Mode:<b> ${wcmmode.edit} </b></div>
-<h1>Passing parameters</h1>
 
+<h1>Passing parameters</h1>
+<div data-sly-use.model="${'com.adobe.aem.guides.wknd.core.models.SightlyModel' @ requestAttribute='editedAttribute'}"></div>
+<div> ${model.title}</div>
+
+<h1>String only on author instance</h1>
+<div data-sly-test="${wcmmode.edit}">Text should appear</div>
+<div data-sly-test="${wcmmode.disabled}">Text should not appear</div>
+
+<h1> Extension </h1>
+
+<h1> List </h1>
+<ul data-sly-list.item="${model.words}">
+    <li data-sly-test="${itemList.first}">${itemList.count}.<b>${item} </b></li>
+    <li data-sly-test="${itemList.middle}">${itemList.count}. ${item}</li>
+    <li data-sly-test="${itemList.last}">${itemList.count}.<i>${item} </i></li>
+</ul>
+
+<h1> Template </h1>
+<sly data-sly-use.component="template.html"
+     data-sly-call="${component.template @ properties=5}"></sly>
+<sly data-sly-use.component="template.html"
+     data-sly-call="${component.template @ properties=9}"></sly>

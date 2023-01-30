@@ -1,4 +1,10 @@
 <div data-sly-use.human="com.adobe.aem.guides.wknd.core.models.HumanModel">
 
-    <h1>Hello,  ${human.lastNameMale}, are you ${human.age} years old?</h1>
+    <h1 data-sly-test.isMale = "${human.gender=='male'}">
+        Hello,  ${human.lastNameMale}</h1>
+    <h1 data-sly-test = "${!isMale}">
+        Hello,  ${human.lastNameFemale}
+    </h1>
 </div>
+
+<!-- add in sightly dots(join)-->

@@ -1,5 +1,5 @@
 package com.adobe.aem.guides.wknd.core.services;
 
-public interface OSGIWithoutConfig {
+public interface OSGIWithoutConfigService {
     String getWord();
 }

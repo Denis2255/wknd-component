@@ -11,9 +11,6 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public class HumanModel {
 
     @ValueMapValue
-    private int age;
-
-    @ValueMapValue
     private String firstNameMale;
 
     @ValueMapValue
@@ -25,8 +22,11 @@ public class HumanModel {
     @ValueMapValue
     private String lastNameFemale;
 
-    public int getAge() {
-        return age;
+    @ValueMapValue
+    private String gender;
+
+    public String getGender() {
+        return gender;
     }
 
     public String getFirstNameMale() {

@@ -1,7 +1,7 @@
 package com.adobe.aem.guides.wknd.core.services.impl;
 
 
-import com.adobe.aem.guides.wknd.core.services.OSGIWithFewRealization;
+import com.adobe.aem.guides.wknd.core.services.MultipleRealizationService;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
@@ -10,15 +10,15 @@ import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@Component(service = OSGIWithFewRealization.class, immediate = true)
-@Designate(ocd = OSGIWithFewRealizationSecondImpl.ConfigFewRealizationSecond.class)
-public class OSGIWithFewRealizationSecondImpl implements OSGIWithFewRealization{
+@Component(service = MultipleRealizationService.class, immediate = true)
+@Designate(ocd = MultipleRealizationServiceSecondImpl.ConfigMultipleRealizationSecond.class)
+public class MultipleRealizationServiceSecondImpl implements MultipleRealizationService {
 
-    private ConfigFewRealizationSecond configuration;
+    private ConfigMultipleRealizationSecond configuration;
 
     @Activate
     @Modified
-    public void activate(ConfigFewRealizationSecond configuration) {
+    public void activate(ConfigMultipleRealizationSecond configuration) {
         this.configuration = configuration;
     }
 
@@ -28,7 +28,7 @@ public class OSGIWithFewRealizationSecondImpl implements OSGIWithFewRealization{
     }
 
     @ObjectClassDefinition(name = "WKND_CUSTOM - Config With Few Realization Second")
-    public @interface ConfigFewRealizationSecond {
+    public @interface ConfigMultipleRealizationSecond {
         @AttributeDefinition(
                 name = "Service value",
                 type = AttributeType.STRING)

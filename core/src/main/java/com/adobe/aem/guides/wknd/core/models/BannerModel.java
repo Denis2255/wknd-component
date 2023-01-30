@@ -17,10 +17,10 @@ import org.osgi.service.component.annotations.Reference;
 public class BannerModel {
 
     @OSGiService
-    Externalizer externalizer;
+    private Externalizer externalizer;
 
-    @Reference
-    private ServiceResourceResolver serviceResourceResolver;
+    @OSGiService
+    private ResourceResolver resourceResolver;
     @ValueMapValue
     private String heading;
 
@@ -42,16 +42,8 @@ public class BannerModel {
     }
 
     public String getLink() {
-        ResourceResolver resourceResolver = null;
-        try {
-            resourceResolver = serviceResourceResolver.getServiceResourceResolver();
-            externalizer = resourceResolver.adaptTo(Externalizer.class);
-            if (externalizer == null) {
-                return null;}
-            return externalizer.authorLink((ResourceResolver) resourceResolver.getResource(link), "/wknd/us");
-        } catch (LoginException e) {
-            throw new RuntimeException(e);
-        }
+        externalizer = resourceResolver.adaptTo(Externalizer.class);
+        return externalizer.authorLink(resourceResolver, link) + ".html";
     }
 
     public String getTitle() {

@@ -21,7 +21,7 @@ import static com.adobe.aem.guides.wknd.core.servlets.SearchThreeWaysServlet.SER
                 "sling.servlet.methods=" + HttpConstants.METHOD_GET})
 public class SearchThreeWaysServlet extends SlingAllMethodsServlet {
 
-    public static final String SERVLET_PATH = "/bin/searchthreeway";
+    static final String SERVLET_PATH = "/bin/searchthreeway";
     private static final Logger LOG = LoggerFactory.getLogger(SearchThreeWaysServlet.class);
 
     @Reference

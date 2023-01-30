@@ -1,19 +1,19 @@
+(function($) {
 
+    var SELECTOR = "text-validation-age",
+        foundationReg = $(window).adaptTo("foundation-registry");
 
-(function($, Coral) {
-    "use strict";
+    foundationReg.register("foundation.validation.validator", {
+        selector: "[data-validation='" + SELECTOR + "']",
+        validate: function(el) {
+            var pattern = /^[1-9]$|^[1-9][0-9]$|^(100)$/;
+            var error_message = "The format must be 1=100";
+            var result = el.value.match(pattern);
 
-registry.register("foundation.validation.validator", {
-    selector: "[data-validation=age-validation]",
-    validate: function(element) {
-        let el = $(element);
-        let pattern=/[^[1-9][0-9]?$|^100$]/;
-        let value=el.val();
-        if(pattern.test(value)){
-            return "Please add age 1-100";
+            if (result === null) {
+                return error_message;
+            }
         }
+    });
 
-    }
-});
-
-})(jQuery, Coral);
+}(jQuery));

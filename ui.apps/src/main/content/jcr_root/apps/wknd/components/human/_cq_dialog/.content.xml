@@ -5,7 +5,7 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Human component"
           sling:resourceType="cq/gui/components/authoring/dialog"
-          extraClientlibs="[human]">
+          extraClientlibs="[human.validator]">
     <content
             jcr:primaryType="nt:unstructured"
             sling:resourceType="granite/ui/components/coral/foundation/container">
@@ -29,12 +29,15 @@
                                 <granite:data
                                         jcr:primaryType="nt:unstructured"
                                         cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                                <datasource
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/bin/availableThemes"/>
                                 <items jcr:primaryType="nt:unstructured">
-                                    <square
+                                    <male
                                             jcr:primaryType="nt:unstructured"
                                             text="Male"
                                             value="male"/>
-                                    <rectangle
+                                    <female
                                             jcr:primaryType="nt:unstructured"
                                             text="Female"
                                             value="female"/>
@@ -96,10 +99,11 @@
                                     emptyText="Enter the value"
                                     fieldLabel="Age"
                                     name="./age"
-                                    validation="age-validation"/>
+                                    validation="text-validation-age"/>
+                            <items jcr:primaryType="nt:unstructured">
+                            </items>
                         </items>
                     </column>
-
                 </items>
             </columns>
         </items>
